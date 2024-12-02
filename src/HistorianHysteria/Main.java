@@ -45,8 +45,6 @@ public class Main {
 
         for(int i = 0; i < sortedLeft.length; i++){
             int occurrenceCount = 0;
-            int leftValue = sortedLeft[i];
-            int rightValue = sortedRight[rightCounter];
             while(rightCounter < sortedRight.length - 1 && sortedLeft[i] > sortedRight[rightCounter]){
                 rightCounter++;
             }
