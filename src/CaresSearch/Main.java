@@ -63,12 +63,12 @@ public class Main {
                 boolean dlur = false;
                 if(input[i][j].equals("A")){
                     if (i >= 1 && j >= 1 && i <= input.length - 2 && j <= input[i].length - 2){ //search up left - down right
-                        if(input[i-1][j-1].equals("M") && input[i+1][j+1].equals("S") || input[i-1][j-1].equals("S") && input[i+1][j+1].equals("M")){
+                        if((input[i-1][j-1].equals("M") && input[i+1][j+1].equals("S")) || (input[i-1][j-1].equals("S") && input[i+1][j+1].equals("M"))){
                             uldr = true;
                         }
                     }
                     if(i <= input.length - 2 && j >= 1 && i >= 1 && j <= input[i].length - 2){ //search down left - up right
-                        if(input[i+1][j-1].equals("M") && input[i-1][j+1].equals("S") || input[i+1][j-1].equals("S") && input[i-1][j+1].equals("M")){
+                        if((input[i+1][j-1].equals("M") && input[i-1][j+1].equals("S")) || (input[i+1][j-1].equals("S") && input[i-1][j+1].equals("M"))){
                             dlur = true;
                         }
                     }
