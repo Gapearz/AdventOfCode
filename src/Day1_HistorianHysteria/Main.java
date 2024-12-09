@@ -1,8 +1,7 @@
-package HistorianHysteria;
+package Day1_HistorianHysteria;
 
 import Tools.FileReaderAdvent;
 
-import java.rmi.dgc.VMID;
 import java.util.Arrays;
 
 public class Main {
@@ -69,7 +68,7 @@ public class Main {
 
 
     public static void main(String[] args){
-        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/HistorianHysteria/input.txt");
+        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day1_HistorianHysteria/input.txt");
         String[] testInput = {
                 "3   4",
                 "4   3",

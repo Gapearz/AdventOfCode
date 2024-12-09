@@ -1,4 +1,4 @@
-package DiskFragment;
+package Day9_DiskFragment;
 
 import Tools.FileReaderAdvent;
 
@@ -138,7 +138,7 @@ public class Main {
     }
 
     public static void readInput(){
-        FileReaderAdvent fileReader = new FileReaderAdvent("src/DiskFragment/input.txt");
+        FileReaderAdvent fileReader = new FileReaderAdvent("src/Day9_DiskFragment/input.txt");
         String[] input = fileReader.readFile();
         String[] line = input[0].split("");
         for(int i = 0; i < line.length; i += 2){

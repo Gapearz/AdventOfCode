@@ -1,9 +1,8 @@
-package BridgeRepair;
+package Day7_BridgeRepair;
 
 import Tools.FileReaderAdvent;
 
 import java.text.DecimalFormat;
-import java.util.Arrays;
 
 public class Main {
 
@@ -69,7 +68,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/BridgeRepair/input.txt");
+        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day7_BridgeRepair/input.txt");
         String[] test = {
                 "190: 10 19",
                 "3267: 81 40 27",
