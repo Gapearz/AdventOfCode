@@ -1,4 +1,4 @@
-package Day5_PrintQueue;
+package Day05_PrintQueue;
 
 import Tools.FileReaderAdvent;
 
@@ -124,7 +124,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        FileReaderAdvent fileReader = new FileReaderAdvent("src/Day5_PrintQueue/input.txt");
+        FileReaderAdvent fileReader = new FileReaderAdvent("src/Day05_PrintQueue/input.txt");
         String[] test = {
                 "47|53",
                 "97|13",

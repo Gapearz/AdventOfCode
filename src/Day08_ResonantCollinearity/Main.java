@@ -1,4 +1,4 @@
-package Day8_ResonantCollinearity;
+package Day08_ResonantCollinearity;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,7 +15,7 @@ public class Main {
     private static int mapSizeY;
 
     private static void readInput() {
-        try (Stream<String> stream = Files.lines(Paths.get("src/Day8_ResonantCollinearity/input.txt"))) {
+        try (Stream<String> stream = Files.lines(Paths.get("src/Day08_ResonantCollinearity/input.txt"))) {
             stream.forEach(lines::add);
         } catch (IOException e) {
             e.printStackTrace();

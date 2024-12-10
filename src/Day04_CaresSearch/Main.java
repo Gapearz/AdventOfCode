@@ -1,4 +1,4 @@
-package Day4_CaresSearch;
+package Day04_CaresSearch;
 
 import Tools.FileReaderAdvent;
 
@@ -89,7 +89,7 @@ public class Main {
         return matrix;
     }
     public static void main(String[] args) {
-        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day4_CaresSearch/input.txt");
+        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day04_CaresSearch/input.txt");
         String[] test = {
                 "MMMSXXMASM",
                 "MSAMXMSMSA",

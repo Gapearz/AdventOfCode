@@ -1,4 +1,4 @@
-package Day2_RedNosedReports;
+package Day02_RedNosedReports;
 
 import Tools.FileReaderAdvent;
 
@@ -120,7 +120,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day2_RedNosedReports/input.txt");
+        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day02_RedNosedReports/input.txt");
         String[] test = {
                 "7 6 4 2 1",
                 "1 2 7 8 9",

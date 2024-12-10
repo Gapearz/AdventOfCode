@@ -1,4 +1,4 @@
-package Day1_HistorianHysteria;
+package Day01_HistorianHysteria;
 
 import Tools.FileReaderAdvent;
 
@@ -68,7 +68,7 @@ public class Main {
 
 
     public static void main(String[] args){
-        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day1_HistorianHysteria/input.txt");
+        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day01_HistorianHysteria/input.txt");
         String[] testInput = {
                 "3   4",
                 "4   3",

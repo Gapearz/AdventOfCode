@@ -1,4 +1,4 @@
-package Day7_BridgeRepair;
+package Day07_BridgeRepair;
 
 import Tools.FileReaderAdvent;
 
@@ -68,7 +68,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day7_BridgeRepair/input.txt");
+        FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day07_BridgeRepair/input.txt");
         String[] test = {
                 "190: 10 19",
                 "3267: 81 40 27",

@@ -1,4 +1,4 @@
-package Day6_GuardGallivant;
+package Day06_GuardGallivant;
 
 import Tools.FileReaderAdvent;
 public class Main {
@@ -6,7 +6,7 @@ public class Main {
     public static int y = 0;
     public static int obstacles = 0;
     public static String[][] map;
-    public static FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day6_GuardGallivant/input.txt");
+    public static FileReaderAdvent fileReaderAdvent = new FileReaderAdvent("src/Day06_GuardGallivant/input.txt");
     public static String[] test = {
             "....#.....",
             ".........#",
