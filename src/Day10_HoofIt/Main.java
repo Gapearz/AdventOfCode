@@ -65,6 +65,14 @@ public class Main {
     public static boolean isTop(int number, int x, int y){
         if(number == 9){
             Point top = new Point(x, y);
+
+//            part 1
+//            if(!visited.contains(top)){
+//                visited.add(top);
+//                return true;
+//            }
+
+//          part 2
             visited.add(top);
             return true;
         }
