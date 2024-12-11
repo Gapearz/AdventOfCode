@@ -28,6 +28,10 @@ public class FileReaderAdvent {
         return lines.toArray(new String[0]);
     }
 
+    public String readFileAsString(){
+        return readFile()[0];
+    }
+
     public List<String> readFileAsList(String file){
         List<String> lines = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(file))) {
