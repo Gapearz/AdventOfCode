@@ -24,6 +24,8 @@ public class Main {
         }
         System.out.println(count);
         long end = System.currentTimeMillis();
+        System.out.println(pebbleMap);
+        System.out.println(pebbleMap.size());
         System.out.println("(" + (end - start) + " ms)");
     }
 
