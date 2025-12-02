@@ -12,12 +12,14 @@ public class FileReaderAdvent {
         return java.io.File(file!!).readLines()
     }
 
-    fun readFileAsString(): String{
-        return readFile()[0]
-    }
-
     fun readFileAsIntList(): List<Int>{
         return readFile().map { it.toInt() }
+    }
+
+    fun readFileAsLine(splitter: String? = null): List<String> {
+        val line = readFile().firstOrNull() ?: return emptyList()
+        return if (splitter == null) line.map { it.toString() }
+            else line.split(splitter)
     }
 
     fun readFileAsMatrix(splitter: String? = null): List<List<String>> {
