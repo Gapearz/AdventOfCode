@@ -29,34 +29,33 @@ fun part1(input: MutableList<MutableList<String>>): Int{
     return splits
 }
 
-fun part2(input: MutableList<MutableList<String>>, modifiedInput: MutableList<MutableList<String>>): Int{
+fun part2(input: MutableList<MutableList<String>>, modifiedInput: MutableList<MutableList<String>>): Long {
     input.removeLast()
     input.add(modifiedInput.last())
 
     val numRows = input.size
     val numCols = input[0].size
-    val memo = mutableMapOf<Pair<Int, Int>, Int>()
+    val memo = mutableMapOf<Pair<Int, Int>, Long>()
 
-    fun search(row: Int, col: Int): Int {
-        if (row == 0 && input[row][col] == "S") return 1
-        if (row == 0) return 0
-        val key = Pair(row, col)
-        if (memo.containsKey(key)) return memo[key]!!
+    fun search(row: Int, col: Int): Long {
+        val key = row to col
+        memo[key]?.let { return it }
+
+        if (row == 0) {
+            return if (input[row][col] == "S") 1L else 0L
+        }
 
         val left = if (col > 0) input[row][col - 1] else null
         val right = if (col < numCols - 1) input[row][col + 1] else null
         val me = input[row][col]
-        var count = 0
+        var count = 0L
 
-        if (left == "^" && right == "^") {
+        if (left == "^") {
             count += search(row - 1, col - 1)
-            count += search(row - 1, col + 1)
-        } else if (left == "^") {
-            count += search(row - 1, col - 1)
-        } else if (right == "^") {
+        }
+        if (right == "^") {
             count += search(row - 1, col + 1)
         }
-
         if (me != "^") {
             count += search(row - 1, col)
         }
@@ -65,12 +64,11 @@ fun part2(input: MutableList<MutableList<String>>, modifiedInput: MutableList<Mu
         return count
     }
 
-    var timelines = 0
-    for (col in 0 until numCols) {
+    return (0 until numCols).sumOf { col ->
         if (input[numRows - 1][col] == "|") {
-            timelines += search(numRows - 1, col)
+            search(numRows - 1, col)
+        } else {
+            0L
         }
     }
-
-    return timelines
 }
