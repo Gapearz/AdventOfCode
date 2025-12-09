@@ -1,8 +1,6 @@
 package Day09_MovieTheater
 
 import kotlin.math.abs
-import kotlin.rem
-import kotlin.text.get
 
 fun main(){
     val fileReaderAdvent = Tools.FileReaderAdvent("src/Day09_MovieTheater/input.txt")
@@ -120,10 +118,12 @@ fun isPointInsideOrOnPolygon(point: Pair<Int, Int>, polygon: List<Pair<Int, Int>
     for (i in polygon.indices) {
         val xi = polygon[i].first
         val yi = polygon[i].second
-        val xj = polygon[j].first
         val yj = polygon[j].second
 
-        if ((yi > point.second) != (yj > point.second) && point.first < (xj - xi) * (point.second - yi) / (yj - yi) + xi) {
+        val minY = minOf(yi, yj)
+        val maxY = maxOf(yi, yj)
+
+        if (point.second in minY ..< maxY && xi > point.first) {
             inside = !inside
         }
         j = i
