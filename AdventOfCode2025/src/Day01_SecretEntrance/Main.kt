@@ -1,13 +1,23 @@
 package Day01_SecretEntrance
 
 import Tools.FileReaderAdvent
+import kotlin.system.measureTimeMillis
 
 fun main() {
     val fileReader = FileReaderAdvent("src/Day01_SecretEntrance/input.txt")
     val input = fileReader.readFile()
 
-    println("[part 1] Times at position 0: ${part1(input)}")
-    println("[part 2] Times at position 0: ${part2(input)}")
+    val time1 = measureTimeMillis {
+        val result = part1(input)
+        println("[part 1] Times at position 0: $result")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(input)
+        println("[part 2] Times at position 0: $result")
+    }
+    println("Part 2 took: $time2 ms")
 
 }
 

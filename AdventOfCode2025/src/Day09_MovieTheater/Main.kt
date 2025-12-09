@@ -1,6 +1,7 @@
 package Day09_MovieTheater
 
 import kotlin.math.abs
+import kotlin.system.measureTimeMillis
 
 fun main(){
     val fileReaderAdvent = Tools.FileReaderAdvent("src/Day09_MovieTheater/input.txt")
@@ -10,8 +11,17 @@ fun main(){
         Pair(it[0].toInt(), it[1].toInt())
     }
 
-    println("[part 1] Max area: ${part1(positions)}")
-    println("[part 2] Max area: ${part2(positions)}")
+    val time1 = measureTimeMillis {
+        val result = part1(positions)
+        println("[part 1] Max area: $result")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(positions)
+        println("[part 2] Max area: $result")
+    }
+    println("Part 2 took: $time2 ms")
 }
 
 fun part1(positions: List<Pair<Int, Int>>): Long{

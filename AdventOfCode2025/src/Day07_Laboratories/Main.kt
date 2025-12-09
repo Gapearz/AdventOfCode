@@ -1,12 +1,23 @@
 package Day07_Laboratories
 
+import kotlin.system.measureTimeMillis
+
 fun main(){
     val fileReaderAdvent = Tools.FileReaderAdvent("src/Day07_Laboratories/input.txt")
     val input = fileReaderAdvent.readFileAsMatrix().map { it.toMutableList() }.toMutableList()
     val inputCopy = input.map { it.toMutableList() }.toMutableList()
 
-    println("[part 1] Beam was split: ${part1(input)} times")
-    println("[part 2] Different timelines: ${part2(inputCopy, input)}")
+    val time1 = measureTimeMillis {
+        val result = part1(input)
+        println("[part 1] Beam was split: $result times")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(inputCopy, input)
+        println("[part 2] Different timelines: $result")
+    }
+    println("Part 2 took: $time2 ms")
 }
 
 fun part1(input: MutableList<MutableList<String>>): Int{

@@ -1,8 +1,10 @@
 package Day08_Playground
 
+import Day09_MovieTheater.part1
 import java.util.PriorityQueue
 import kotlin.math.pow
 import kotlin.math.sqrt
+import kotlin.system.measureTimeMillis
 
 fun main(){
     val fileReaderAdvent = Tools.FileReaderAdvent("src/Day08_Playground/input.txt")
@@ -13,8 +15,17 @@ fun main(){
         Triple(coords[0].toInt(), coords[1].toInt(), coords[2].toInt())
     }
 
-    println("[part 1] Multi of biggest 3: ${part1(positions)}")
-    println("[part 2] Multi of x of the last 2: ${part2(positions)}")
+    val time1 = measureTimeMillis {
+        val result = part1(positions)
+        println("[part 1] Multi of biggest 3: $result")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(positions)
+        println("[part 1] Multi of x of the last 2: $result")
+    }
+    println("Part 2 took: $time2 ms")
 }
 
 fun part1(positions: List<Triple<Int, Int, Int>>): Long {

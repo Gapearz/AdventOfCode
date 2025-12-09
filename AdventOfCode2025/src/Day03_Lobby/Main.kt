@@ -1,13 +1,23 @@
 package Day03_Lobby
 
 import kotlin.math.pow
+import kotlin.system.measureTimeMillis
 
 fun main(){
     val fileReaderAdvent = Tools.FileReaderAdvent("src/Day03_Lobby/input.txt")
     val input = fileReaderAdvent.readFileAsIntMatrix()
 
-    println("[part 1] Voltage sum: ${part1(input)}")
-    println("[part 2] Voltage sum: ${part2(input)}")
+    val time1 = measureTimeMillis {
+        val result = part1(input)
+        println("[part 1] Voltage sum: $result")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(input)
+        println("[part 2] Voltage sum: $result")
+    }
+    println("Part 2 took: $time2 ms")
 }
 
 fun part1(input : List<List<Int>>): Int{

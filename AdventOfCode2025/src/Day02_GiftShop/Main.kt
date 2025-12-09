@@ -1,12 +1,23 @@
 package Day02_GiftShop
 
 import kotlin.math.log10
+import kotlin.system.measureTimeMillis
 
 fun main(){
     val fileReader = Tools.FileReaderAdvent("src/Day02_GiftShop/input.txt")
     val input = fileReader.readFileAsLine(",")
-    println("[part 1] Sum of invalid IDs: ${part1(input)}")
-    println("[part 2] Sum of invalid IDs: ${part2(input)}")
+
+    val time1 = measureTimeMillis {
+        val result = part1(input)
+        println("[part 1] Sum of invalid IDs: $result")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(input)
+        println("[part 2] Sum of invalid IDs: $result")
+    }
+    println("Part 2 took: $time2 ms")
 }
 
 fun part1(input: List<String>): Long{

@@ -1,14 +1,24 @@
 package Day06_TrashCompactor
 
 import Tools.FileReaderAdvent
+import kotlin.system.measureTimeMillis
 
 fun main(){
     val fileReaderAdvent = FileReaderAdvent("src/Day06_TrashCompactor/input.txt")
     val input = fileReaderAdvent.readFileAsMatrix(" ")
     val inputPart2 = fileReaderAdvent.readFileAsMatrix()
 
-    println("[part 1] Grand total: ${part1(input)}")
-    println("[part 2] Grand total: ${part2(inputPart2)}")
+    val time1 = measureTimeMillis {
+        val result = part1(input)
+        println("[part 1] Grand total: $result")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(inputPart2)
+        println("[part 2] Grand total: $result")
+    }
+    println("Part 2 took: $time2 ms")
 }
 
 fun part1(input: List<List<String>>): Long {

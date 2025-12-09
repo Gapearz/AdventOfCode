@@ -1,11 +1,22 @@
 package Day04_PrintingDepartment
 
+import kotlin.system.measureTimeMillis
+
 fun main(){
     val fileReaderAdvent = Tools.FileReaderAdvent("src/Day04_PrintingDepartment/input.txt")
     val input = fileReaderAdvent.readFileAsMatrix()
 
-    println("[part 1] Accessible Paper Rolls: ${part1(input)}")
-    println("[part 2] Accessible Paper Rolls: ${part2(input.map { it.toMutableList() }.toMutableList())}")
+    val time1 = measureTimeMillis {
+        val result = part1(input)
+        println("[part 1] Accessible Paper Rolls: $result")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(input.map { it.toMutableList() }.toMutableList())
+        println("[part 2] Accessible Paper Rolls: $result")
+    }
+    println("Part 2 took: $time2 ms")
 }
 
 fun part1(input: List<List<String>>): Int{

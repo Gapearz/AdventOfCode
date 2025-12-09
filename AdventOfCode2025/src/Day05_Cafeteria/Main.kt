@@ -1,6 +1,7 @@
 package Day05_Cafeteria
 
 import Tools.FileReaderAdvent
+import kotlin.system.measureTimeMillis
 
 fun main(){
     val fileReaderAdvent = FileReaderAdvent("src/Day05_Cafeteria/input.txt")
@@ -12,8 +13,17 @@ fun main(){
     }
     val ingredientList = input.drop(emptyLineIndex + 1).map { it.toLong() }
 
-    println("Available fresh ingredients: ${part1(freshList, ingredientList)}")
-    println("ID's that are considered to be fresh: ${part2(freshList)}")
+    val time1 = measureTimeMillis {
+        val result = part1(freshList, ingredientList)
+        println("Available fresh ingredients: $result")
+    }
+    println("Part 1 took: $time1 ms")
+
+    val time2 = measureTimeMillis {
+        val result = part2(freshList)
+        println("ID's that are considered to be fresh: $result")
+    }
+    println("Part 2 took: $time2 ms")
 }
 
 fun part1(freshList: List<Pair<Long, Long>>, ingredientList: List<Long>): Int{
