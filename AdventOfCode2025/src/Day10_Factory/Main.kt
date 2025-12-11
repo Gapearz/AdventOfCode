@@ -86,9 +86,7 @@ fun part2(input: List<Triple<List<String>, List<List<String>>, List<Int>>>): Lon
         }
 
         var solution = solveLinearSystem(matrix, n, m)
-//        println(line)
         if (solution != null) {
-            println("[part2] Buttons pressed: " + solution.withIndex().joinToString { "Button ${it.index} x${it.value}" })
             totalClicks += solution.sum()
         }
 
