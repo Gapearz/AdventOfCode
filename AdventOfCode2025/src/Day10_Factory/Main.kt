@@ -86,8 +86,9 @@ fun part2(input: List<Triple<List<String>, List<List<String>>, List<Int>>>): Lon
         }
 
         var solution = solveLinearSystem(matrix, n, m)
-
+//        println(line)
         if (solution != null) {
+            println("[part2] Buttons pressed: " + solution.withIndex().joinToString { "Button ${it.index} x${it.value}" })
             totalClicks += solution.sum()
         }
 
@@ -186,41 +187,48 @@ fun solveLinearSystem(matrix: Array<IntArray>, rows: Int, cols: Int): IntArray? 
     var minSolution: IntArray? = null
     var minClicks = Int.MAX_VALUE
 
-    for (mask in 0 until (1 shl freeVars.size)) {
-        val solution = IntArray(cols)
+    val bitDepths = listOf(3, 5, 7, 9, 11)
 
-        for (i in freeVars.indices) {
-            solution[freeVars[i]] = (mask shr i) and 1
-        }
+    for (bitsPerVar in bitDepths) {
+        val maxIterations = 1 shl (freeVars.size * bitsPerVar)
+        val iterationLimit = minOf(maxIterations, 10_000_000)
 
-        var valid = true
-        for (row in pivotRow - 1 downTo 0) {
-            val pivotCol = pivotCols[row]
-            var sum = augmented[row][cols]
-            for (col in pivotCol + 1 until cols) {
-                sum -= augmented[row][col] * solution[col]
+        for (mask in 0 until iterationLimit) {
+            val solution = IntArray(cols)
+
+            for (i in freeVars.indices) {
+                solution[freeVars[i]] = (mask shr (i * bitsPerVar)) and ((1 shl bitsPerVar) - 1)
             }
 
-            val pivotCoeff = augmented[row][pivotCol]
-            if (sum % pivotCoeff != 0) {
-                valid = false
-                break
+            var valid = true
+            for (row in pivotRow - 1 downTo 0) {
+                val pivotCol = pivotCols[row]
+                var sum = augmented[row][cols]
+                for (col in pivotCol + 1 until cols) {
+                    sum -= augmented[row][col] * solution[col]
+                }
+
+                val pivotCoeff = augmented[row][pivotCol]
+                if (sum % pivotCoeff != 0) {
+                    valid = false
+                    break
+                }
+
+                val value = sum / pivotCoeff
+                if (value !in 0..3000) {
+                    valid = false
+                    break
+                }
+
+                solution[pivotCol] = value
             }
 
-            val value = sum / pivotCoeff
-            if (value < 0) {
-                valid = false
-                break
-            }
-
-            solution[pivotCol] = value
-        }
-
-        if (valid) {
-            val clicks = solution.sum()
-            if (clicks < minClicks) {
-                minClicks = clicks
-                minSolution = solution
+            if (valid) {
+                val clicks = solution.sum()
+                if (clicks < minClicks) {
+                    minClicks = clicks
+                    minSolution = solution
+                }
             }
         }
     }
